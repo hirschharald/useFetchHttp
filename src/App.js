@@ -7,6 +7,7 @@ export default function App() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [todo, postNewTodo] = doFetch();
+  const [todolist, getTodos] = doFetch();
 
   const createTodo = () => {
     postNewTodo({
@@ -20,6 +21,18 @@ export default function App() {
     });
   };
 
+  const listTodos = () => {
+    getTodos({
+      method: "GET",
+      url: todosApi,
+      config: {
+        mode: "cors",
+        credentials: "include"
+      }
+    });
+    console.log("***********", todolist);
+  };
+
   return (
     <div>
       <h1>New Todo</h1>
@@ -31,10 +44,24 @@ export default function App() {
         Body: <input value={body} onChange={(e) => setBody(e.target.value)} />
       </label>
       <button onClick={createTodo}>Create Todo</button>
+
+      <button onClick={listTodos}>List Todos</button>
       <div className="new-todo">
         {(todo.pending && "Creating Todo...") ||
           (todo.complete &&
             `Todo with title ${todo.data.title} created with ID ${todo.data.id}`)}
+      </div>
+      <div>
+        <ul>
+          {todolist.data &&
+            todolist.data.map((itm) => {
+              return (
+                <li>
+                  {itm.title} {itm.id}
+                </li>
+              );
+            })}
+        </ul>
       </div>
     </div>
   );
