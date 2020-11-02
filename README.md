@@ -1,2 +1,2 @@
 # useFetchHttp
-custom hook for gerating  get  and post Http Requests with fetch
+custom hook for generating  get  and post Http Requests with fetch
