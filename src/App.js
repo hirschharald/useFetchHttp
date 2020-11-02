@@ -64,7 +64,6 @@ export default function App() {
     url: `${todosApi}/${count}`,
     data: ""
   });
-
   const createTodos = () => {
     setTodo({
       method: "GET",
