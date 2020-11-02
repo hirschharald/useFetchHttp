@@ -1,2 +1,2 @@
 # useFetchHttp
-Created with CodeSandbox
+custom hook for gerating  get  and post Http Requests with fetch
