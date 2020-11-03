@@ -41,7 +41,7 @@ const postTodo = () => {
   postNewTodo({
     method: "POST",
     url: "https://jsonplaceholder.typicode.com/todos",
-    body: {title: "blabla", body: "this is a todo", user_id: 1}
+    body: {title: "blabla", body: "this is a todo", user_id: 1},
     config: {
       mode: "cors",
       credentials: "include"
