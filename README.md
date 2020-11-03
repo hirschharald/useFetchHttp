@@ -1,12 +1,16 @@
-# useFetchHttp
+## useFetchHttp
 custom hook for generating  get  and post Http Requests with fetch
 
-# define
+## define
+
+```js
   import { doFetch } from "./usefetchHttp"; // custom hook
   const [todo, postNewTodo] = doFetch();
   const [todolist, getTodos] = doFetch();
+```
+## Sample Get
 
-# Sample Get
+```js
 const createTodo = () => {
     postNewTodo({
       method: "POST",
@@ -18,7 +22,9 @@ const createTodo = () => {
       }
     });
   };
-# Sample Post
+```
+## Sample Post
+```js
   const listTodos = () => {
     getTodos({
       method: "GET",
@@ -29,3 +35,4 @@ const createTodo = () => {
       }
     });
   };
+```
