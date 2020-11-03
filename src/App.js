@@ -1,14 +1,15 @@
-import { conforms } from "lodash";
 import React, { useState, useEffect } from "react";
 import { doFetch } from "./usefetchHttp";
 
 export default function App() {
-  const todosApi = "https://jsonplaceholder.typicode.com/todos";
+  
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [todo, postNewTodo] = doFetch();
   const [todolist, getTodos] = doFetch();
 
+  const todosApi = "https://jsonplaceholder.typicode.com/todos";
+  
   const createTodo = () => {
     postNewTodo({
       method: "POST",
@@ -30,7 +31,6 @@ export default function App() {
         credentials: "include"
       }
     });
-    console.log("***********", todolist);
   };
 
   return (
