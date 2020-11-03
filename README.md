@@ -1,38 +1,51 @@
 ## useFetchHttp
 custom hook for generating  get  and post Http Requests with fetch
 
-## define
+## import hook
 
 ```js
   import { doFetch } from "./usefetchHttp"; // custom hook
-  const [todo, postNewTodo] = doFetch();
-  const [todolist, getTodos] = doFetch();
 ```
-## Sample Get
+##  Basic Get
 
 ```js
-const createTodo = () => {
-    postNewTodo({
-      method: "POST",
-      url: "https://jsonplaceholder.typicode.com/todos",
-      body: { title: title, body: body, userId: 1 },
-      config: {
-        mode: "cors",
-        credentials: "include"
-      }
-    });
-  };
+const [todolist, getTodos] = doFetch();
+
+const getTodoList = () => {
+  getTodos({
+    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/todos",
+  });
+};
+```
+##  Get with options
+```js
+const [todolist, getTodos] = doFetch();
+
+const getTodoList = () => {
+  getTodos({
+    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/todos",
+    config: {
+      mode: "cors",
+      credentials: "include"
+    }
+  });
+};
 ```
 ## Sample Post
 ```js
-  const listTodos = () => {
-    getTodos({
-      method: "GET",
-      url: "https://jsonplaceholder.typicode.com/todos",
-      config: {
-        mode: "cors",
-        credentials: "include"
-      }
-    });
-  };
+const [todo, postNewTodo] = doFetch();
+
+const postTodo = () => {
+  postNewTodo({
+    method: "POST",
+    url: "https://jsonplaceholder.typicode.com/todos",
+    body: {title: "blabla", body: "this is a todo", user_id: 1}
+    config: {
+      mode: "cors",
+      credentials: "include"
+    }
+  });
+};
 ```
